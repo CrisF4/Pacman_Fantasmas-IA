@@ -89,11 +89,19 @@ class Ghost:
     def _safe_mc_from_pixel(self, px, pz):
         x_idx = px - 20
         y_idx = pz - 20
-        if x_idx < 0 or x_idx >= len(self.XPxToMC):
-            return -1, -1
-        if y_idx < 0 or y_idx >= len(self.YPxToMC):
-            return -1, -1
-        return int(self.XPxToMC[x_idx]), int(self.YPxToMC[y_idx])
+
+        def nearest_valid(arr, idx):
+            if idx < 0: idx = 0
+            if idx >= len(arr): idx = len(arr) - 1
+            if arr[idx] != -1: return int(arr[idx])
+            for r in range(1, len(arr)):
+                if idx - r >= 0 and arr[idx - r] != -1:
+                    return int(arr[idx - r])
+                if idx + r < len(arr) and arr[idx + r] != -1:
+                    return int(arr[idx + r])
+            return -1
+
+        return nearest_valid(self.XPxToMC, x_idx), nearest_valid(self.YPxToMC, y_idx)
 
     def _is_valid_mc(self, x, y):
         if y < 0 or y >= len(self.MC):
@@ -175,17 +183,22 @@ class Ghost:
         if len(self.transposition_table) > self.transposition_max_size:
             self.transposition_table.clear()
 
-    def _debug_print_ai_metrics(self, mode, root_mc=None, selected_dir=None, depth_used=None, timeout_hit=False, note=""):
+    def _debug_print_ai_metrics(self, mode, root_mc=None, selected_dir=None, depth_used=None, timeout_hit=False, note="", branch_factor=0, best_score=0.0):
         if not self.debug_ai:
             return
         mc_text = "n/a"
         if root_mc is not None:
             mc_text = f"({root_mc[0]}, {root_mc[1]})"
+
+        extra_info = ""
+        if mode.startswith("alpha_beta"):
+            extra_info = f" score={best_score:.2f} branches={branch_factor}"
+
         print(
-            f"[AI][Fantasma {self.tipo}] mode={mode} mc={mc_text} dir={selected_dir} "
+            f"[Fantasma {self.tipo}] mode={mode} mc={mc_text} dir={selected_dir} "
             f"depth={depth_used} time_ms={self.last_decision_ms:.3f} "
             f"nodes={self.nodes_expanded} cache_hits={self.cache_hits} tabu={len(self.tabu_list)} "
-            f"tt={len(self.transposition_table)} timeout={timeout_hit} {note}"
+            f"tt={len(self.transposition_table)} timeout={timeout_hit}{extra_info} {note}"
         )
 
     def _debug_print_collision(self, pacman_position, distance):
@@ -342,7 +355,7 @@ class Ghost:
             if self._timeout_reached(t0, self.time_budget_ms_solo):
                 timeout_hit = True
                 break
-            alpha_beta_rec(root_state, current_depth, -float("inf"), float("inf"), True)
+            best_val_global = alpha_beta_rec(root_state, current_depth, -float("inf"), float("inf"), True)
 
         self.last_decision_ms = (time.perf_counter() - t0) * 1000.0
 
@@ -353,7 +366,14 @@ class Ghost:
 
         self._update_tabu(self.tabu_list, (gx, gy))
         self._move_pixel_step(best_dir_global)
-        self._debug_print_ai_metrics("alpha_beta_solo", root_mc=(gx, gy), selected_dir=best_dir_global, depth_used=self.depth_base_solo, timeout_hit=timeout_hit)
+        
+        branches = len(self.generar_hijos({
+            "x": gx,
+            "y": gy,
+            "prev_dir": self.direction,
+            "tabu": self.tabu_list
+        }, False))
+        self._debug_print_ai_metrics("alpha_beta_solo", root_mc=(gx, gy), selected_dir=best_dir_global, depth_used=self.depth_base_solo, timeout_hit=timeout_hit, branch_factor=branches, best_score=best_val_global)
 
     def eval_heuristic_pinky(self, estado_simulado_fantasma, estado_simulado_pacman):
         """
@@ -511,7 +531,7 @@ class Ghost:
             if self._timeout_reached(t0, self.time_budget_ms_manada):
                 timeout_hit = True
                 break
-            alpha_beta_rec(root_state, current_depth, -float("inf"), float("inf"), True)
+            best_val_global = alpha_beta_rec(root_state, current_depth, -float("inf"), float("inf"), True)
 
         self.last_decision_ms = (time.perf_counter() - t0) * 1000.0
 
@@ -522,7 +542,12 @@ class Ghost:
 
         self._update_tabu(self.tabu_list, (g1x, g1y))
         self._move_pixel_step(best_pair_global["g1"]["dir"])
-        self._debug_print_ai_metrics("alpha_beta_manada", root_mc=(g1x, g1y), selected_dir=best_pair_global["g1"]["dir"], depth_used=self.depth_base_manada, timeout_hit=timeout_hit, note=f"partner_dir={best_pair_global['g2']['dir']}")
+        
+        branches = len(self.generar_hijos({
+            "g1": {"x": g1x, "y": g1y, "prev_dir": self.direction, "tabu": self.tabu_list},
+            "g2": {"x": g2x, "y": g2y, "prev_dir": partner.direction if partner else self.direction, "tabu": partner.tabu_list if partner else []}
+        }, True))
+        self._debug_print_ai_metrics("alpha_beta_manada", root_mc=(g1x, g1y), selected_dir=best_pair_global["g1"]["dir"], depth_used=self.depth_base_manada, timeout_hit=timeout_hit, note=f"partner_dir={best_pair_global['g2']['dir']}", branch_factor=branches, best_score=best_val_global)
 
     def eval_heuristic_manada(self, estado_fantasma_1, estado_fantasma_2, estado_pacman):
         """
@@ -685,11 +710,12 @@ class Ghost:
             self.path_ia(pacmanXY, all_ghosts)
         else: #si no se encuentra en una interseccion o es falsa interseccion
             self.sigue_adelante()
-            if self.debug_ai:
-                print(
-                    f"[MOVE][Fantasma {self.tipo}] tunnel direction={self.direction} "
-                    f"px={self.position[0]} pz={self.position[2]}"
-                )
+            # Mostrar debug de movimientos de fantasmas en tuneles
+            # if self.debug_ai:
+            #     print(
+            #         f"[MOVE][Fantasma {self.tipo}] tunnel direction={self.direction} "
+            #         f"px={self.position[0]} pz={self.position[2]}"
+            #     )
         
     def draw(self):
         glPushMatrix()

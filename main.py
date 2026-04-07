@@ -231,7 +231,7 @@ def lookat():
     glLoadIdentity()
     gluLookAt(EYE_X,EYE_Y,EYE_Z,CENTER_X,CENTER_Y,CENTER_Z,UP_X,UP_Y,UP_Z)
 
-def display():
+def display(update_game=True):
     global done
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     Axis()
@@ -239,21 +239,24 @@ def display():
     pc.draw()
     for g in ghosts:
         g.draw()
-        g.update2(pc.position, ghosts)
-        
-        # ---------------------------------------------------------
-        # DISTANCIA EUCLIDIANA: Detección de colisiones e intercepción 
-        # ---------------------------------------------------------
-        # Calculamos la distancia basada en la posición en ambos ejes (X, Z).
-        dist = math.sqrt((pc.position[0] - g.position[0])**2 + (pc.position[2] - g.position[2])**2)
-        
-        # Como los modelos tienen escala (20 de ancho/alto aprox originado por los cubos y movimiento de +-20),
-        # un umbral de 20 es un cruce seguro y tangencial de las cajas del pacman / fantasmas.
-        if dist < 20.0:  
-            print(f"¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo {g.tipo})!")
-            # done = True # Terminar la partida en esta iteración
+        if update_game:
+            g.update2(pc.position, ghosts)
+            
+            # ---------------------------------------------------------
+            # DISTANCIA EUCLIDIANA: Detección de colisiones e intercepción 
+            # ---------------------------------------------------------
+            # Calculamos la distancia basada en la posición en ambos ejes (X, Z).
+            dist = math.sqrt((pc.position[0] - g.position[0])**2 + (pc.position[2] - g.position[2])**2)
+            
+            # Como los modelos tienen escala (20 de ancho/alto aprox originado por los cubos y movimiento de +-20),
+            # un umbral de 20 es un cruce seguro y tangencial de las cajas del pacman / fantasmas.
+            if dist < 20.0:  
+                print(f"¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo {g.tipo})!")
+                # done = True # Terminar la partida en esta iteración
     
 done = False
+paused = False
+slow_motion = False
 Init()
 #finding(matrix, (xarray[0]-20,zarray[0]-20), (xarray[9]-20,zarray[9]-20))
 while not done:
@@ -261,7 +264,19 @@ while not done:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 done = True
+            elif event.key == pygame.K_p:
+                paused = not paused
+                print(f"[JUEGO] {'Pausado' if paused else 'Reanudado'}")
+            elif event.key == pygame.K_c:
+                slow_motion = not slow_motion
+                print(f"[JUEGO] Camara Lenta {'Activada' if slow_motion else 'Desactivada'}")
     
+    if paused:
+        pygame.time.wait(10)
+        display(update_game=False)
+        pygame.display.flip()
+        continue
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_RIGHT]:
         if theta > 359.0:
@@ -291,9 +306,13 @@ while not done:
     else:
         pc.update(-1)
 
-    display()
+    display(update_game=True)
     pygame.display.flip()
-    pygame.time.wait(10)
+    
+    if slow_motion:
+        pygame.time.wait(80)
+    else:
+        pygame.time.wait(10)
 
 pygame.quit()
     

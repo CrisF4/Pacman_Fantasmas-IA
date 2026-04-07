@@ -1,0 +1,65 @@
+pygame 2.6.1 (SDL 2.28.4, Python 3.12.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[AI][Fantasma 0] mode=random mc=(9, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(9, 0) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(0, 9) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(0, 0) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(8, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=alpha_beta_solo mc=(8, 0) dir=3 depth=4 time_ms=0.489 nodes=19 cache_hits=0 tabu=1 tt=19 timeout=False score=-4.15 branches=1 
+[AI][Fantasma 2] mode=random mc=(0, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(0, 1) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(1, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(7, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=alpha_beta_solo mc=(7, 0) dir=2 depth=4 time_ms=0.728 nodes=29 cache_hits=0 tabu=2 tt=48 timeout=False score=-3.45 branches=3 
+[AI][Fantasma 3] mode=random mc=(0, 2) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(2, 8) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(6, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(1, 2) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=alpha_beta_solo mc=(7, 1) dir=2 depth=4 time_ms=1.104 nodes=43 cache_hits=0 tabu=3 tt=91 timeout=False score=-2.75 branches=3 
+[AI][Fantasma 2] mode=random mc=(2, 7) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(5, 9) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 2) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=alpha_beta_solo mc=(7, 2) dir=2 depth=4 time_ms=0.865 nodes=28 cache_hits=0 tabu=4 tt=119 timeout=False score=-2.05 branches=2 
+[AI][Fantasma 2] mode=random mc=(3, 7) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(5, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 3) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=alpha_beta_solo mc=(7, 3) dir=2 depth=4 time_ms=0.557 nodes=21 cache_hits=0 tabu=5 tt=140 timeout=False score=-1.35 branches=1 
+[AI][Fantasma 2] mode=random mc=(3, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 4) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=alpha_beta_solo mc=(7, 4) dir=3 depth=4 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False score=-0.65 branches=3 
+[AI][Fantasma 0] mode=random mc=(6, 8) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(4, 8) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 5) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(6, 7) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(6, 4) dir=0 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 2] mode=random mc=(4, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 6) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(6, 3) dir=3 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 0] mode=random mc=(5, 7) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(3, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(1, 6) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(5, 6) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(5, 3) dir=3 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 3] mode=random mc=(0, 6) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(2, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(6, 6) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(4, 3) dir=3 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 3] mode=random mc=(0, 7) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(1, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(7, 6) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(3, 3) dir=2 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 3] mode=random mc=(1, 7) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(0, 9) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(3, 4) dir=2 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 0] mode=random mc=(8, 6) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 3] mode=random mc=(1, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(0, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(9, 6) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(3, 5) dir=1 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 8) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(1, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(9, 7) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 1] mode=random mc=(4, 5) dir=1 depth=0 time_ms=0.871 nodes=39 cache_hits=0 tabu=6 tt=179 timeout=False 
+[AI][Fantasma 3] mode=random mc=(2, 7) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 2] mode=random mc=(2, 8) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[AI][Fantasma 0] mode=random mc=(8, 7) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
