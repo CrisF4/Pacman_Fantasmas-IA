@@ -87,7 +87,6 @@ MC = [
 ]
 
 xMC = [0,30,71,114,156,199,242,286,328,358]
-
 #XPxToMC = np.zeros((359,), dtype=int)
 XPxToMC = np.full(359, -1, dtype=int)
 XPxToMC[0] = 0

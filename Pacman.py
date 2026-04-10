@@ -31,6 +31,7 @@ class Pacman:
         self.positionMC.append(self.YPxToMC[self.position[2] - 20]) #coord en y
         #se almacena la direccion inicial del pacman
         self.direction = 1 #asumiendo que inicia en la posicion (0,0)
+        self.next_direction = -1 # Buffer para teclas guiadas
         #bandera para saber si el pacman se encuentra en estado inicial del juego
         self.start = 1      
         
@@ -51,6 +52,10 @@ class Pacman:
         glEnd()
         
     def update(self, dir):
+        # Actualizamos el buffer de entrada
+        if dir != -1:
+            self.next_direction = dir
+            
         #si pacman se encuentra en una interseccion (valida o "falsa interseccion")
         if ((self.YPxToMC[self.position[2] - 20] != -1) and 
             (self.XPxToMC[self.position[0] - 20] != -1)):
@@ -70,11 +75,11 @@ class Pacman:
                     self.position[0] -= 1
             else:    
                 #si pacman se encuentra en una interseccion
-                #si no se selecciono una direccion, entonces se evalua con la direccion actual
-                if ((dir == -1) and (self.start != 1)):
-                    dir = self.direction
-                if dir == 0: #up
-                    #print("up")
+                # Intentamos usar la direccion buffereada, si es valida
+                moved = False
+                
+                # Check up buffer
+                if self.next_direction == 0:
                     if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 12) or 
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 13) or 
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 22) or
@@ -84,8 +89,10 @@ class Pacman:
                         self.direction = 0
                         self.position[2] -= 1
                         self.start = 0
-                if dir == 1: #right
-                    #print("right")
+                        moved = True
+                        self.next_direction = -1 # Consumir el buffer
+                # Check right buffer
+                elif self.next_direction == 1:
                     if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 10) or
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 12) or
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 21) or
@@ -96,8 +103,10 @@ class Pacman:
                         self.direction = 1
                         self.position[0] += 1
                         self.start = 0
-                if dir == 2: #down
-                    #print("down")
+                        moved = True
+                        self.next_direction = -1 # Consumir el buffer
+                # Check down buffer
+                elif self.next_direction == 2:
                     if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 10) or
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 11) or
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 21) or
@@ -107,8 +116,10 @@ class Pacman:
                         self.direction = 2
                         self.position[2] += 1
                         self.start = 0
-                if dir == 3: #left
-                    #print("left")
+                        moved = True
+                        self.next_direction = -1 # Consumir el buffer
+                # Check left buffer
+                elif self.next_direction == 3:
                     if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 11) or
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 13) or
                         (self.MC[self.positionMC[1]][self.positionMC[0]] == 21) or
@@ -119,25 +130,68 @@ class Pacman:
                         self.direction = 3
                         self.position[0] -= 1
                         self.start = 0
+                        moved = True
+                        self.next_direction = -1 # Consumir el buffer
+
+                # Fallback to current direction if buffer was invalid or unused
+                if not moved and self.start != 1:
+                    if self.direction == 0:
+                        if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 12) or 
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 13) or 
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 22) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 23) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 24) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 25)):
+                            self.position[2] -= 1
+                    elif self.direction == 1:
+                        if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 10) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 12) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 21) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 23) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 24) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 25) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 26)):
+                            self.position[0] += 1
+                    elif self.direction == 2:
+                        if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 10) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 11) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 21) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 22) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 24) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 25)):
+                            self.position[2] += 1
+                    elif self.direction == 3:
+                        if ((self.MC[self.positionMC[1]][self.positionMC[0]] == 11) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 13) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 21) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 22) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 23) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 25) or
+                            (self.MC[self.positionMC[1]][self.positionMC[0]] == 27)):
+                            self.position[0] -= 1
       
         #si no se encuentra en una interseccion
         else:
+            # Evaluamos contra el buffer en vez del input en tiempo real
+            current_input = self.next_direction
             #lleva direccion hacia arriba
             if self.direction == 0:
                 #se se aplasta flecha hacia abajo, se puede regresar
-                if dir == 2:
+                if current_input == 2:
                     self.position[2] += 1
                     self.direction = 2
+                    self.next_direction = -1 # Buffer consumido
                 else:
                     #sigue su camino
                     self.position[2] -= 1    
             else:        
                 #lleva direccion hacia la derecha
                 if self.direction == 1:
-                    #se se aplasta flecha hacia abajo, se puede regresar
-                    if dir == 3:
+                    #se se aplasta flecha hacia la izquierda, se puede regresar
+                    if current_input == 3:
                         self.position[0] -= 1
                         self.direction = 3
+                        self.next_direction = -1 # Buffer consumido
                     else:
                         #sigue su camino
                         self.position[0] += 1
@@ -145,20 +199,23 @@ class Pacman:
                     #lleva una direccion hacia abajo
                     if self.direction == 2:
                         #si se aplasta flecha hacia arriba, se puede regresar
-                        if dir == 0:
+                        if current_input == 0:
                             self.position[2] -= 1
                             self.direction = 0
+                            self.next_direction = -1 # Buffer consumido
                         else:
                             self.position[2] += 1
                     else:
                         #se lleva una direccion hacia la izquierda
                         if self.direction == 3:
                             #si se aplasta flecha hacia la derecha, se puede regresar
-                            if dir == 1:
+                            if current_input == 1:
                                 self.position[0] += 1
                                 self.direction = 1
+                                self.next_direction = -1 # Buffer consumido
                             else:
                                 self.position[0] -= 1
+
         
     def draw(self):
         glPushMatrix()

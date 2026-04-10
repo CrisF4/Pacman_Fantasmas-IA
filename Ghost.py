@@ -70,6 +70,9 @@ class Ghost:
         self.last_decision_ms = 0.0
         self.debug_ai = True
         
+        # Margen epsilon para Poda de Inutilidades
+        self.epsilon = 0.2
+        
     def loadTextures(self, texturas, id):
         self.texturas = texturas
         self.Id = id
@@ -86,14 +89,18 @@ class Ghost:
         glVertex3f(x4, y4, z4)
         glEnd()
 
+    # Correcion importante de esta funcion: 
     def _safe_mc_from_pixel(self, px, pz):
+        # Offset de 20 px restado para alinearse con la matriz de control
         x_idx = px - 20
         y_idx = pz - 20
 
+        # Funcion para encontrar el valor de la celda mas cercana que no sea -1 (no transitable)
         def nearest_valid(arr, idx):
             if idx < 0: idx = 0
             if idx >= len(arr): idx = len(arr) - 1
-            if arr[idx] != -1: return int(arr[idx])
+            if arr[idx] != -1: return int(arr[idx]) # Si el indice directo es un valor que representa una celda de interseccion, se retorna inmediatamente.
+            # Radar de expansion: se busca hacia afuera desde el indice dado para encontrar el valor de interseccion más cercano que no sea -1.
             for r in range(1, len(arr)):
                 if idx - r >= 0 and arr[idx - r] != -1:
                     return int(arr[idx - r])
@@ -310,7 +317,7 @@ class Ghost:
                         if depth == current_depth:
                             best_dir_global = child["dir"]
                     alpha = max(alpha, best_val)
-                    if beta <= alpha:
+                    if beta <= alpha + self.epsilon:
                         break
             else:
                 best_val = float("inf")
@@ -334,7 +341,7 @@ class Ghost:
                     value = alpha_beta_rec(next_state, depth - 1, alpha, beta, True)
                     best_val = min(best_val, value)
                     beta = min(beta, best_val)
-                    if beta <= alpha:
+                    if beta <= alpha + self.epsilon:
                         break
 
             self.transposition_table[key] = best_val
@@ -485,7 +492,7 @@ class Ghost:
                         if depth == current_depth:
                             best_pair_global = pair
                     alpha = max(alpha, best_val)
-                    if beta <= alpha:
+                    if beta <= alpha + self.epsilon:
                         break
             else:
                 best_val = float("inf")
@@ -514,7 +521,7 @@ class Ghost:
                     value = alpha_beta_rec(next_state, depth - 1, alpha, beta, True)
                     best_val = min(best_val, value)
                     beta = min(beta, best_val)
-                    if beta <= alpha:
+                    if beta <= alpha + self.epsilon:
                         break
 
             self.transposition_table[key] = best_val
