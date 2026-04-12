@@ -1,119 +1,46 @@
 pygame 2.6.1 (SDL 2.28.4, Python 3.12.13)
 Hello from the pygame community. https://www.pygame.org/contribute.html
 [Fantasma 0] mode=random mc=(9, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(9, 0) dir=3 depth=4 time_ms=0.281 nodes=16 cache_hits=0 tabu=1 tt=16 timeout=False score=-4.85 branches=2 
-[Fantasma 2] mode=alpha_beta_manada mc=(0, 9) dir=0 depth=3 time_ms=0.248 nodes=8 cache_hits=0 tabu=1 tt=8 timeout=False score=-1.53 branches=2 partner_dir=2
-[Fantasma 3] mode=alpha_beta_manada mc=(0, 0) dir=2 depth=3 time_ms=0.362 nodes=13 cache_hits=0 tabu=1 tt=13 timeout=False score=-0.63 branches=4 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(9, 0) dir=3 depth=4 time_ms=0.136 nodes=16 cache_hits=0 tabu=1 tt=16 timeout=False score=-4.85 branches=2 
+[Fantasma 2] mode=alpha_beta_manada mc=(0, 9) dir=0 depth=3 time_ms=0.147 nodes=8 cache_hits=0 tabu=1 tt=8 timeout=False score=-1.53 branches=2 partner_dir=2
+[Fantasma 3] mode=alpha_beta_manada mc=(0, 0) dir=2 depth=3 time_ms=0.204 nodes=13 cache_hits=0 tabu=1 tt=13 timeout=False score=-0.63 branches=4 partner_dir=1
 [Fantasma 0] mode=random mc=(8, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(8, 0) dir=3 depth=4 time_ms=0.716 nodes=19 cache_hits=0 tabu=2 tt=35 timeout=False score=-4.15 branches=1 
-[Fantasma 2] mode=alpha_beta_manada mc=(0, 8) dir=1 depth=3 time_ms=0.796 nodes=11 cache_hits=0 tabu=2 tt=19 timeout=False score=-0.93 branches=4 partner_dir=1
-[Fantasma 3] mode=alpha_beta_manada mc=(0, 1) dir=1 depth=3 time_ms=0.428 nodes=19 cache_hits=0 tabu=2 tt=32 timeout=False score=-0.63 branches=6 partner_dir=2
-[Fantasma 2] mode=alpha_beta_manada mc=(1, 8) dir=1 depth=3 time_ms=0.676 nodes=13 cache_hits=0 tabu=3 tt=32 timeout=False score=-0.93 branches=2 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(8, 0) dir=3 depth=4 time_ms=0.489 nodes=19 cache_hits=0 tabu=2 tt=35 timeout=False score=-4.15 branches=1 
+[Fantasma 2] mode=alpha_beta_manada mc=(0, 8) dir=1 depth=3 time_ms=0.245 nodes=11 cache_hits=0 tabu=2 tt=19 timeout=False score=-0.93 branches=4 partner_dir=1
+[Fantasma 3] mode=alpha_beta_manada mc=(0, 1) dir=1 depth=3 time_ms=0.483 nodes=19 cache_hits=0 tabu=2 tt=32 timeout=False score=-0.63 branches=6 partner_dir=2
+[Fantasma 2] mode=alpha_beta_manada mc=(1, 8) dir=1 depth=3 time_ms=0.364 nodes=13 cache_hits=0 tabu=3 tt=32 timeout=False score=-0.93 branches=2 partner_dir=1
 [Fantasma 0] mode=random mc=(7, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 0) dir=2 depth=4 time_ms=0.434 nodes=29 cache_hits=0 tabu=3 tt=64 timeout=False score=-3.45 branches=3 
-[Fantasma 3] mode=alpha_beta_manada mc=(1, 1) dir=1 depth=3 time_ms=0.634 nodes=13 cache_hits=0 tabu=3 tt=45 timeout=False score=-0.93 branches=2 partner_dir=1
-[Fantasma 2] mode=alpha_beta_manada mc=(2, 8) dir=0 depth=3 time_ms=0.886 nodes=17 cache_hits=0 tabu=4 tt=49 timeout=False score=-1.00 branches=6 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 0) dir=2 depth=4 time_ms=0.471 nodes=29 cache_hits=0 tabu=3 tt=64 timeout=False score=-3.45 branches=3 
+[Fantasma 3] mode=alpha_beta_manada mc=(1, 1) dir=1 depth=3 time_ms=0.389 nodes=13 cache_hits=0 tabu=3 tt=45 timeout=False score=-0.93 branches=2 partner_dir=1
+[Fantasma 2] mode=alpha_beta_manada mc=(2, 8) dir=0 depth=3 time_ms=0.588 nodes=17 cache_hits=0 tabu=4 tt=49 timeout=False score=-1.00 branches=6 partner_dir=1
 [Fantasma 0] mode=random mc=(6, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada mc=(2, 1) dir=1 depth=3 time_ms=1.501 nodes=29 cache_hits=0 tabu=4 tt=74 timeout=False score=-1.00 branches=6 partner_dir=0
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 1) dir=2 depth=4 time_ms=0.997 nodes=42 cache_hits=0 tabu=4 tt=106 timeout=False score=-3.20 branches=3 
-[Fantasma 2] mode=alpha_beta_manada mc=(2, 7) dir=1 depth=3 time_ms=0.869 nodes=17 cache_hits=0 tabu=5 tt=66 timeout=False score=0.57 branches=6 partner_dir=1
-[Fantasma 0] mode=random mc=(5, 9) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 2) dir=2 depth=4 time_ms=0.513 nodes=22 cache_hits=0 tabu=5 tt=128 timeout=False score=-3.20 branches=2 
-[Fantasma 3] mode=alpha_beta_manada mc=(3, 1) dir=1 depth=3 time_ms=1.139 nodes=23 cache_hits=0 tabu=5 tt=97 timeout=False score=0.57 branches=6 partner_dir=1
-[Fantasma 2] mode=alpha_beta_manada mc=(3, 7) dir=2 depth=3 time_ms=0.900 nodes=20 cache_hits=0 tabu=6 tt=86 timeout=False score=0.57 branches=6 partner_dir=1
-[Fantasma 0] mode=random mc=(4, 9) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 3) dir=2 depth=4 time_ms=0.603 nodes=22 cache_hits=0 tabu=6 tt=150 timeout=False score=-3.20 branches=1 
-[Fantasma 3] mode=alpha_beta_manada mc=(4, 1) dir=1 depth=3 time_ms=1.268 nodes=27 cache_hits=0 tabu=6 tt=124 timeout=False score=0.57 branches=6 partner_dir=2
-[Fantasma 2] mode=alpha_beta_manada mc=(3, 8) dir=1 depth=3 time_ms=0.550 nodes=13 cache_hits=0 tabu=6 tt=99 timeout=False score=0.57 branches=4 partner_dir=1
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 4) dir=2 depth=4 time_ms=0.917 nodes=41 cache_hits=0 tabu=6 tt=191 timeout=False score=-1.80 branches=3 
-[Fantasma 0] mode=random mc=(4, 8) dir=3 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada mc=(5, 1) dir=1 depth=3 time_ms=0.963 nodes=19 cache_hits=0 tabu=6 tt=143 timeout=False score=0.57 branches=4 partner_dir=1
-[Fantasma 2] mode=alpha_beta_manada mc=(4, 8) dir=2 depth=3 time_ms=0.663 nodes=12 cache_hits=0 tabu=6 tt=111 timeout=False score=0.70 branches=4 partner_dir=1
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 5) dir=2 depth=4 time_ms=0.465 nodes=16 cache_hits=0 tabu=6 tt=207 timeout=False score=-0.40 branches=1 
-[Fantasma 0] mode=random mc=(3, 8) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada mc=(6, 1) dir=1 depth=3 time_ms=0.892 nodes=18 cache_hits=0 tabu=6 tt=161 timeout=False score=1.00 branches=4 partner_dir=1
-[Fantasma 2] mode=alpha_beta_manada mc=(4, 9) dir=1 depth=3 time_ms=0.901 nodes=18 cache_hits=0 tabu=6 tt=129 timeout=False score=1.00 branches=4 partner_dir=1
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 6) dir=2 depth=4 time_ms=0.701 nodes=23 cache_hits=0 tabu=6 tt=230 timeout=False score=1001.00 branches=3 
-[Fantasma 0] mode=random mc=(3, 7) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada mc=(7, 1) dir=1 depth=3 time_ms=1.105 nodes=27 cache_hits=0 tabu=6 tt=188 timeout=False score=0.87 branches=6 partner_dir=1
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 7) dir=2 depth=4 time_ms=0.315 nodes=11 cache_hits=0 tabu=6 tt=241 timeout=False score=1001.50 branches=2 
-[Fantasma 2] mode=alpha_beta_manada mc=(5, 9) dir=1 depth=3 time_ms=1.107 nodes=27 cache_hits=0 tabu=6 tt=156 timeout=False score=0.87 branches=6 partner_dir=1
-[Fantasma 0] mode=random mc=(4, 7) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada mc=(8, 1) dir=1 depth=3 time_ms=0.350 nodes=8 cache_hits=0 tabu=6 tt=196 timeout=False score=0.40 branches=1 partner_dir=1
-[Fantasma 1] mode=alpha_beta_solo mc=(7, 8) dir=1 depth=4 time_ms=0.138 nodes=4 cache_hits=0 tabu=6 tt=245 timeout=False score=1001.00 branches=2 
-[Fantasma 2] mode=alpha_beta_manada mc=(6, 9) dir=1 depth=3 time_ms=0.515 nodes=13 cache_hits=0 tabu=6 tt=169 timeout=False score=0.40 branches=2 partner_dir=2
-[Fantasma 0] mode=random mc=(5, 7) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada mc=(9, 1) dir=2 depth=3 time_ms=0.512 nodes=13 cache_hits=0 tabu=6 tt=209 timeout=False score=0.40 branches=2 partner_dir=1
-[Fantasma 1] mode=alpha_beta_solo mc=(8, 8) dir=1 depth=4 time_ms=0.379 nodes=13 cache_hits=0 tabu=6 tt=258 timeout=False score=1001.50 branches=2 
-[Fantasma 2] mode=alpha_beta_manada mc=(7, 9) dir=1 depth=3 time_ms=0.301 nodes=7 cache_hits=0 tabu=6 tt=176 timeout=False score=1.17 branches=1 partner_dir=3
-[Fantasma 3] mode=alpha_beta_manada mc=(9, 2) dir=3 depth=3 time_ms=0.268 nodes=7 cache_hits=0 tabu=6 tt=216 timeout=False score=1.17 branches=2 partner_dir=1
+[Fantasma 3] mode=alpha_beta_manada mc=(2, 1) dir=2 depth=3 time_ms=0.839 nodes=28 cache_hits=0 tabu=4 tt=73 timeout=False score=-0.93 branches=6 partner_dir=3
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 1) dir=2 depth=4 time_ms=0.573 nodes=42 cache_hits=0 tabu=4 tt=106 timeout=False score=-3.20 branches=3 
+[Fantasma 2] mode=alpha_beta_manada mc=(2, 7) dir=1 depth=3 time_ms=0.448 nodes=23 cache_hits=0 tabu=5 tt=72 timeout=False score=-1.60 branches=6 partner_dir=2
+[Fantasma 0] mode=random mc=(5, 9) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[Fantasma 3] mode=alpha_beta_manada mc=(2, 2) dir=2 depth=3 time_ms=0.704 nodes=28 cache_hits=0 tabu=5 tt=101 timeout=False score=-1.60 branches=6 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 2) dir=2 depth=4 time_ms=0.411 nodes=34 cache_hits=0 tabu=5 tt=140 timeout=False score=-1.80 branches=2 
+[Fantasma 2] mode=alpha_beta_manada mc=(3, 7) dir=2 depth=3 time_ms=0.317 nodes=12 cache_hits=0 tabu=6 tt=84 timeout=False score=-1.40 branches=3 partner_dir=2
+[Fantasma 0] mode=random mc=(5, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[Fantasma 3] mode=alpha_beta_manada mc=(2, 3) dir=2 depth=3 time_ms=0.553 nodes=16 cache_hits=0 tabu=6 tt=117 timeout=False score=-1.40 branches=3 partner_dir=2
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 3) dir=2 depth=4 time_ms=0.347 nodes=21 cache_hits=0 tabu=6 tt=161 timeout=False score=-1.80 branches=1 
+[Fantasma 2] mode=alpha_beta_manada mc=(3, 8) dir=1 depth=3 time_ms=0.383 nodes=15 cache_hits=0 tabu=6 tt=99 timeout=False score=-1.53 branches=6 partner_dir=1
+[Fantasma 3] mode=alpha_beta_manada mc=(2, 4) dir=1 depth=3 time_ms=0.553 nodes=24 cache_hits=0 tabu=6 tt=141 timeout=False score=-1.53 branches=6 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 4) dir=2 depth=4 time_ms=0.414 nodes=32 cache_hits=0 tabu=6 tt=193 timeout=False score=-1.30 branches=3 
+[Fantasma 0] mode=random mc=(6, 8) dir=0 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[Fantasma 2] mode=alpha_beta_manada mc=(4, 8) dir=2 depth=3 time_ms=0.384 nodes=12 cache_hits=0 tabu=6 tt=111 timeout=False score=-1.40 branches=4 partner_dir=0
 [Fantasma 0] mode=random mc=(6, 7) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(9, 8) dir=2 depth=4 time_ms=0.144 nodes=4 cache_hits=0 tabu=6 tt=262 timeout=False score=1001.50 branches=2 
-[Fantasma 3] mode=alpha_beta_manada mc=(8, 2) dir=3 depth=3 time_ms=0.194 nodes=3 cache_hits=0 tabu=6 tt=219 timeout=False score=1000.10 branches=1 partner_dir=1
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-[Fantasma 2] mode=alpha_beta_manada mc=(8, 9) dir=1 depth=3 time_ms=0.170 nodes=3 cache_hits=0 tabu=6 tt=179 timeout=False score=1000.10 branches=1 partner_dir=3
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 5) dir=2 depth=4 time_ms=0.303 nodes=20 cache_hits=0 tabu=6 tt=213 timeout=False score=-1.30 branches=1 
+[Fantasma 3] mode=alpha_beta_manada mc=(3, 4) dir=0 depth=3 time_ms=0.628 nodes=18 cache_hits=0 tabu=6 tt=159 timeout=False score=-1.40 branches=4 partner_dir=2
+[Fantasma 2] mode=alpha_beta_manada mc=(4, 9) dir=1 depth=3 time_ms=0.316 nodes=10 cache_hits=0 tabu=6 tt=121 timeout=False score=-1.53 branches=2 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 6) dir=2 depth=4 time_ms=0.482 nodes=30 cache_hits=0 tabu=6 tt=243 timeout=False score=-0.65 branches=3 
+[Fantasma 3] mode=alpha_beta_manada mc=(3, 3) dir=1 depth=3 time_ms=0.243 nodes=10 cache_hits=0 tabu=6 tt=169 timeout=False score=-1.00 branches=4 partner_dir=1
 [Fantasma 0] mode=random mc=(7, 7) dir=2 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-[Fantasma 1] mode=random mc=(9, 9) dir=3 depth=0 time_ms=0.059 nodes=0 cache_hits=0 tabu=6 tt=262 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo_fallback mc=(9, 9) dir=3 depth=0 time_ms=0.059 nodes=0 cache_hits=0 tabu=6 tt=262 timeout=False score=0.00 branches=0 fallback_random
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 1)!
-[Fantasma 2] mode=alpha_beta_manada mc=(9, 9) dir=0 depth=3 time_ms=0.240 nodes=3 cache_hits=0 tabu=6 tt=182 timeout=False score=1000.40 branches=4 partner_dir=2
-[Fantasma 3] mode=alpha_beta_manada mc=(7, 2) dir=2 depth=3 time_ms=0.446 nodes=9 cache_hits=0 tabu=6 tt=228 timeout=False score=1000.40 branches=4 partner_dir=0
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 7) dir=2 depth=4 time_ms=0.342 nodes=17 cache_hits=0 tabu=6 tt=260 timeout=False score=0.05 branches=2 
+[Fantasma 2] mode=alpha_beta_manada mc=(5, 9) dir=1 depth=3 time_ms=0.261 nodes=15 cache_hits=0 tabu=6 tt=136 timeout=False score=-0.40 branches=4 partner_dir=1
 [Fantasma 0] mode=random mc=(7, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
-[Fantasma 1] mode=alpha_beta_solo mc=(8, 9) dir=3 depth=4 time_ms=0.359 nodes=13 cache_hits=0 tabu=6 tt=275 timeout=False score=-1.30 branches=1 
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-[Fantasma 2] mode=random mc=(9, 8) dir=3 depth=0 time_ms=0.161 nodes=0 cache_hits=0 tabu=6 tt=182 timeout=False 
-[Fantasma 2] mode=alpha_beta_manada_fallback mc=(9, 8) dir=3 depth=0 time_ms=0.161 nodes=0 cache_hits=0 tabu=6 tt=182 timeout=False score=0.00 branches=0 fallback_random
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-[Fantasma 3] mode=random mc=(7, 3) dir=2 depth=0 time_ms=0.064 nodes=0 cache_hits=0 tabu=6 tt=228 timeout=False 
-[Fantasma 3] mode=alpha_beta_manada_fallback mc=(7, 3) dir=2 depth=0 time_ms=0.064 nodes=0 cache_hits=0 tabu=6 tt=228 timeout=False score=0.00 branches=0 fallback_random
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
-¡Pacman ha sido cazado por un fantasma (Fantasma de Tipo 2)!
+[Fantasma 3] mode=alpha_beta_manada mc=(4, 3) dir=1 depth=3 time_ms=0.263 nodes=15 cache_hits=0 tabu=6 tt=184 timeout=False score=-0.40 branches=4 partner_dir=1
+[Fantasma 1] mode=alpha_beta_solo mc=(7, 8) dir=1 depth=4 time_ms=0.162 nodes=8 cache_hits=2 tabu=6 tt=268 timeout=False score=-0.65 branches=2 
+[Fantasma 2] mode=alpha_beta_manada mc=(6, 9) dir=1 depth=3 time_ms=0.216 nodes=8 cache_hits=1 tabu=6 tt=144 timeout=False score=1000.20 branches=2 partner_dir=1
+[Fantasma 0] mode=random mc=(8, 8) dir=1 depth=0 time_ms=0.000 nodes=0 cache_hits=0 tabu=0 tt=0 timeout=False 
+[Fantasma 3] mode=alpha_beta_manada mc=(5, 3) dir=1 depth=3 time_ms=0.231 nodes=11 cache_hits=0 tabu=6 tt=195 timeout=False score=0.40 branches=2 partner_dir=1

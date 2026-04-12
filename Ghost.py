@@ -30,7 +30,7 @@ class Ghost:
         #se define el arreglo para la posicion en la matriz de control
         self.positionMC = []
         self.positionMC.append(self.XPxToMC[self.position[0] - 20]) #coord en x
-        self.positionMC.append(self.YPxToMC[self.position[2] - 20]) #coord en y
+        self.positionMC.append(self.YPxToMC[self.position[2] - 20]) #coord en y (eje z en realidad)
         #se inicializa una direccion valida
         self.direction = dir
         #se almacena que tipo de fantasma sera:
@@ -162,6 +162,9 @@ class Ghost:
         return x, y
 
     def _count_exits(self, x, y):
+        """
+        Cuenta el número de salidas disponibles desde la celda de intersección dada por (x, y) en la matriz de control.
+        """
         return max(1, len(self._allowed_dirs(self._cell_id(x, y))))
 
     def _update_tabu(self, tabu_list, mc_pos):
@@ -191,6 +194,12 @@ class Ghost:
             self.transposition_table.clear()
 
     def _debug_print_ai_metrics(self, mode, root_mc=None, selected_dir=None, depth_used=None, timeout_hit=False, note="", branch_factor=0, best_score=0.0):
+        """
+        Imprime información detallada sobre la decisión de la IA para propósitos de depuración y análisis.
+        Cuidar que se estan imprimiendo las coordenadas logicas en orden [X,Y] para su facil interpretación, aunque en realidad
+        sean [X,Z] e internamente se pasan a logica [Y,X] al pasar por las funciones auxiliares que traducen entre pixeles y matriz de control. 
+        """
+        
         if not self.debug_ai:
             return
         mc_text = "n/a"
@@ -249,10 +258,8 @@ class Ghost:
                     break
             self.alpha_beta_manada(pacmanXY, partner)
             
-    # ----------------------------------------------------
-    # BASES Y ESQUELETOS (PENDIENTES A IMPLEMENTAR REALMENTE)
-    # ----------------------------------------------------
-    
+    # === Algoritmos de busqueda y funciones de evaluacion heuristica para los fantasmas de tipo 1, 2 y 3: ===
+
     def alpha_beta_solo(self, pacmanXY):
         """
         Logica de Poda Alfa-Beta para Pinky (Solitario).
@@ -273,12 +280,21 @@ class Ghost:
         best_dir_global = None
         timeout_hit = False
 
+        """
+        Función recursiva para la búsqueda Alfa-Beta en caza solitaria. El estado se representa como un diccionario que contiene las coordenadas
+        y direcciones actuales del fantasma y Pacman, así como las listas tabu para ambos. La función evalúa si se ha alcanzado 
+        el tiempo límite o la profundidad máxima, y en ese caso retorna la evaluación heurística del estado. 
+        Si no, genera los hijos (movimientos posibles) para el jugador actual (maximizador o minimizador) y recursivamente 
+        evalúa cada uno, aplicando la poda alfa-beta según corresponda.
+        """
         def alpha_beta_rec(state, depth, alpha, beta, is_max):
             nonlocal best_dir_global, timeout_hit
+            # Bajada progresiva
             if self._timeout_reached(t0, self.time_budget_ms_solo):
                 timeout_hit = True
                 return self.eval_heuristic_pinky((state["gx"], state["gy"]), (state["px"], state["py"]))
 
+            # Captura simulada o profundidad máxima alcanzada
             if depth == 0 or ((state["gx"], state["gy"]) == (state["px"], state["py"])):
                 return self.eval_heuristic_pinky((state["gx"], state["gy"]), (state["px"], state["py"]))
 
@@ -430,6 +446,16 @@ class Ghost:
         best_pair_global = None
         timeout_hit = False
 
+        """
+        Función recursiva para la búsqueda Alfa-Beta en modo manada.
+        En este caso de caza en manada, para el nodo maximizador, se generan las combinaciones de movimientos posibles para ambos 
+        fantasmas y se evalúan conjuntamente, mientras que para el nodo minimizador se generan los movimientos de Pacman como 
+        respuesta a la configuración combinada de ambos fantasmas.
+        La función de evaluación heurística para la manada debe considerar la posición conjunta de ambos fantasmas respecto a 
+        Pacman, buscando estrategias de acorralamiento y aprovechando la capacidad de cubrir múltiples rutas de escape 
+        simultáneamente.
+        """
+        
         def alpha_beta_rec(state, depth, alpha, beta, is_max):
             nonlocal best_pair_global, timeout_hit
             if self._timeout_reached(t0, self.time_budget_ms_manada):
